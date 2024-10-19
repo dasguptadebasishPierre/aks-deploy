@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: aks-demo-vote
+  labels:
+    app: aks-demo-vote
+    kubernetes.azure.com/generator: devhub
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: aks-demo-vote
+  template:
+    metadata:
+      labels:
+        app: aks-demo-vote
+    spec:
+      containers:
+        - name: aks-demo-vote
+          image: rgdemoregistry.azurecr.io/aksvoteimg:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8000
