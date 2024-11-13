@@ -1,24 +1,24 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: aks-demo-vote
+  name: rotary-1
   labels:
-    app: aks-demo-vote
+    app: rotary-1
     kubernetes.azure.com/generator: devhub
-  namespace: default
+  namespace: namespace-workflow-1731521786781
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: aks-demo-vote
+      app: rotary-1
   template:
     metadata:
       labels:
-        app: aks-demo-vote
+        app: rotary-1
     spec:
       containers:
-        - name: aks-demo-vote
-          image: rgdemoregistry.azurecr.io/aksvoteimg:latest
+        - name: rotary-1
+          image: rotaryreg.azurecr.io/rortaryregimg:latest
           imagePullPolicy: Always
           ports:
-            - containerPort: 8000
+            - containerPort: 80
