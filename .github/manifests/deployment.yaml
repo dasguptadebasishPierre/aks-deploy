@@ -1,24 +1,24 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: rotary-1
+  name: test-deploy
   labels:
-    app: rotary-1
+    app: test-deploy
     kubernetes.azure.com/generator: devhub
-  namespace: namespace-workflow-1731521786781
+  namespace: namespace-workflow-1730998702765
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: rotary-1
+      app: test-deploy
   template:
     metadata:
       labels:
-        app: rotary-1
+        app: test-deploy
     spec:
       containers:
-        - name: rotary-1
-          image: rotaryreg.azurecr.io/rortaryregimg:latest
+        - name: test-deploy
+          image: acrdebu.azurecr.io/image-workflow-1730998702765:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 80

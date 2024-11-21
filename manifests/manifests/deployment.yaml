@@ -1,24 +1,24 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: rotary-1
+  name: demodevsecops1
   labels:
-    app: rotary-1
+    app: demodevsecops1
     kubernetes.azure.com/generator: devhub
-  namespace: namespace-workflow-1731521786781
+  namespace: acrnamespace1
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: rotary-1
+      app: demodevsecops1
   template:
     metadata:
       labels:
-        app: rotary-1
+        app: demodevsecops1
     spec:
       containers:
-        - name: rotary-1
-          image: rotaryreg.azurecr.io/rortaryregimg:latest
+        - name: demodevsecops1
+          image: demodevsecopsregistry.azurecr.io/acrdemo1:latest
           imagePullPolicy: Always
           ports:
-            - containerPort: 80
+            - containerPort: 5001

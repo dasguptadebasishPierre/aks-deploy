@@ -1,14 +1,14 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: rotary-1
-  namespace: namespace-workflow-1731521786781
+  name: test-deploy
+  namespace: namespace-workflow-1730998702765
   labels:
     kubernetes.azure.com/generator: devhub
 spec:
   type: LoadBalancer
   selector:
-    app: rotary-1
+    app: test-deploy
   ports:
     - protocol: TCP
       port: 80
