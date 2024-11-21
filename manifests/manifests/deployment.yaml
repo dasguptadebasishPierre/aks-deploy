@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demodevsecops1
+  labels:
+    app: demodevsecops1
+    kubernetes.azure.com/generator: devhub
+  namespace: acrnamespace1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: demodevsecops1
+  template:
+    metadata:
+      labels:
+        app: demodevsecops1
+    spec:
+      containers:
+        - name: demodevsecops1
+          image: demodevsecopsregistry.azurecr.io/acrdemo1:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 5001
